@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card-body p-4 p-sm-5">
+          <h5 class="card-title text-center mb-5 fw-light fs-5">Sign up</h5>
+          <form [formGroup]="signUpForm">
+            <small *ngIf="signUpForm.controls['FirstName'].dirty && signUpForm.hasError('required', 'FirstName')"
+              class="text-danger">First Name is required.</small>
+            <div class="form-floating mb-3">
+              <input type="text" formControlName="FirstName" class="form-control" id="txtFirstName">
+              <label for="txtFirstName">First Name</label>
+            </div>
+            <small *ngIf="signUpForm.controls['LastName'].dirty && signUpForm.hasError('required', 'LastName')"
+              class="text-danger">Last Name is required.</small>
+            <div class="form-floating mb-3">
+              <input type="text" formControlName="LastName" class="form-control" id="txtLastName">
+              <label for="txtLastName">Lasy Name</label>
+            </div>
+            <small *ngIf="signUpForm.controls['Email'].dirty && signUpForm.hasError('required', 'Email')"
+              class="text-danger">Email is required.</small>
+              <small *ngIf="signUpForm.hasError('email', 'Email')" class="text-danger">Please provide a valid email address</small>
+            <div class="form-floating mb-3">
+              <input type="email" formControlName="Email" class="form-control" id="txtEmail">
+              <label for="txtEmail">Email address</label>
+            </div>
+            <small *ngIf="signUpForm.controls['Password'].dirty && signUpForm.hasError('required', 'Password')"
+              class="text-danger">Password is required.</small>
+              <small *ngIf="signUpForm.hasError('pattern', 'Password')" class="text-danger">Password must contain atleast one: <br/>Upper Case Character,<br/> Lower Case Character, <br/>Special Character,<br/> Number and must be at least 8 characters long</small>
+            <div class="form-floating mb-3">
+              <input type="password" formControlName="Password" class="form-control" id="txtPassword">
+              <label for="txtPassword">Password</label>
+            </div>
+            <div class="d-grid">
+              <button (click)="onSubmit()" class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
+                up</button>
+            </div>
+            <hr class="my-4">
+            <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? <a routerLink="/login"
+                style="color: #393f81;">Log in</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
